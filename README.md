@@ -29,3 +29,57 @@ pytest tests/ -v
 
 ## IP Ownership
 Proprietary software asset developed and owned by the creator. All rights reserved.
+
+
+## Installation
+
+Ensure you have Python 3.10+, Node.js 18+, and Docker installed.
+
+```bash
+# Setup Python environment
+python -m venv venv
+venv\Scripts\activate  # On Linux/macOS: source venv/bin/activate
+pip install -r requirements.txt
+
+# Setup Frontend environment (if applicable)
+npm install
+```
+
+## Build
+
+To build the project containers and application assets:
+
+```bash
+# Build containers
+docker compose build
+
+# Build frontend production bundle
+npm run build
+```
+
+## Run
+
+To start the full platform services:
+
+```bash
+# Start Docker services
+docker compose up -d
+
+# Execute test suite
+pytest tests/ -v
+```
+
+## Dependencies
+
+The project dependencies are specified in:
+- `requirements.txt` / `pyproject.toml` (Python backend & ML services)
+- `package.json` / `package-lock.json` (Frontend UI & TypeScript tooling)
+- `docker-compose.yml` (Database, Cache, and Infrastructure services)
+
+Make sure all prerequisites are installed before starting the application.
+
+## Usage
+
+1. Backend API Swagger Docs: `http://localhost:8000/docs`
+2. Frontend Dashboard: `http://localhost:5173` (or `http://localhost:8080`)
+3. CLI & Metric Verification: `python scripts/count_loc.py`
